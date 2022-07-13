@@ -16,6 +16,12 @@ class UserModel {
     fullName= '';
     age= '';
     email= '';
+    developer = {
+        profession:'',
+        languagesCount:0,
+        languagesList:[],
+        languagesPercents:[],
+    };
 }
 
 export default function App() {
@@ -85,6 +91,7 @@ export default function App() {
                             <TableCell align="center">Users</TableCell>
                             <TableCell align="center">Age</TableCell>
                             <TableCell align="center">Mail</TableCell>
+                            <TableCell align="center">Profession</TableCell>
                             <TableCell align="center">Acciones</TableCell>
                         </TableRow>
                     </TableHead>
@@ -94,10 +101,14 @@ export default function App() {
                                 <TableCell align="center">{user.fullName}</TableCell>
                                 <TableCell align="center">{user.age}</TableCell>
                                 <TableCell align="center">{user.email}</TableCell>
+                                <TableCell align="center">{user.developer.profession}</TableCell>
 
                                 <TableCell align='center'>
                                     <IconButton onClick={()=>onEdit(user.id)} style={{marginRight: 25}} aria-label="delete">
                                         <EditIcon/>
+                                    </IconButton>
+                                    <IconButton onClick={()=>onDelete(user.id)} style={{marginRight: 15}} aria-label="delete">
+                                        <ClearIcon color='error'/>
                                     </IconButton>
                                     <IconButton onClick={()=>onDelete(user.id)} style={{marginRight: 15}} aria-label="delete">
                                         <ClearIcon color='error'/>
